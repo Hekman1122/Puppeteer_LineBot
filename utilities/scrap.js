@@ -44,6 +44,9 @@ const productCollector = async (page, arr) => {
 };
 
 async function scrap() {
+  await puppeteer
+    .createBrowserFetcher()
+    .download(puppeteer.defaultBrowserRevision);
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(
