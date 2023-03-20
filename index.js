@@ -68,7 +68,7 @@ function schedule_job() {
   return job;
 }
 
-schedule_job(obj_array);
+schedule_job();
 
 app.listen(process.env.PORT || 80, function () {
   console.log(`Server is listening on port ${process.env.PORT || 80}`);
