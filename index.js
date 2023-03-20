@@ -18,16 +18,16 @@ app.post("/webhook", line.middleware(config), (req, res) => {
     res.json(result)
   );
 });
-let obj_array;
-scrap()
-  .then((res) => {
-    obj_array = res;
-  })
-  .catch((e) => {
-    console.error(e);
-  });
 
 function handleEvent(event) {
+  let obj_array;
+  scrap()
+    .then((res) => {
+      obj_array = res;
+    })
+    .catch((e) => {
+      console.error(e);
+    });
   if (event.type === "message") {
     if (event.message.text.includes("暢銷")) {
       return client.replyMessage(
