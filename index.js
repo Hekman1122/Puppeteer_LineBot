@@ -47,7 +47,15 @@ function handleEvent(event) {
   }
 }
 
-function schedule_job(obj_array) {
+function schedule_job() {
+  let obj_array;
+  scrap()
+    .then((res) => {
+      obj_array = res;
+    })
+    .catch((e) => {
+      console.error(e);
+    });
   const job = schedule.scheduleJob("00 00 18 * * *", async () => {
     try {
       const message = replyData(obj_array, "random", 10);
